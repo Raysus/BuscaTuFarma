@@ -60,14 +60,10 @@
             </div>
             <div class="form-group">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" name="pass">
+              <input type="password" class="form-control" name="password">
             </div>
-						<div class="checkbox">
-              <label>
-                <input type="checkbox"> Remember me</label>
-              </div>
               <div id="estadoLogIn"></div>
-              <button id="login_button" type="submit" class="btn btn-default">Submit</button>
+              <button id="login_button" type="submit" class="btn btn-default">Ingresar</button>
             </form>
           </li>
 					</ul>
@@ -185,18 +181,6 @@
 			</div>
 		</section>
 		<!-- end contact -->
-
-		<!-- start login -->
-		<footer>
-			<div class="container">
-				<div class="row">
-					<p>Farmacias populares
-
-                    | Municipalidad de Temuco </a></p>
-				</div>
-			</div>
-		</footer>
-		<!-- end login -->
 
 		<!-- start footer -->
 		<footer>
