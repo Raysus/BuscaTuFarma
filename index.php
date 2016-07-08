@@ -51,6 +51,25 @@
 						<li><a href="#feature">Medicamentos</a></li>
 						<li><a href="#download">Ubicación</a></li>
 						<li><a href="#contact">Contacto</a></li>
+						<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a></span>
+          <form role="form" class="dropdown-menu" action="login/login.php" method="post" id="login">
+            <div class="form-group">
+              <label for="text">Usuario:</label>
+              <input type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" name="pass">
+            </div>
+						<div class="checkbox">
+              <label>
+                <input type="checkbox"> Remember me</label>
+              </div>
+              <div id="estadoLogIn"></div>
+              <button id="login_button" type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </li>
 					</ul>
 				</div>
 
@@ -97,8 +116,7 @@
 							<?php
 							$busca="";
 							$busca=$_POST['busca'];
-							mysql_connect("localhost","root");
-							mysql_select_db("medicamentos");
+							m$db = new mysqli("localhost" ,"root", "","medicamentos");
 							if($busca!=""){
 							  $busqueda=mysql_query("select * from medicamentos where Nombre_activo like '%".$busca."%'");
 							}
@@ -168,6 +186,18 @@
 		</section>
 		<!-- end contact -->
 
+		<!-- start login -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<p>Farmacias populares
+
+                    | Municipalidad de Temuco </a></p>
+				</div>
+			</div>
+		</footer>
+		<!-- end login -->
+
 		<!-- start footer -->
 		<footer>
 			<div class="container">
@@ -184,5 +214,6 @@
 		<script src="js/wow.min.js"></script>
 		<script src="js/jquery.singlePageNav.min.js"></script>
 		<script src="js/custom.js"></script>
+
 	</body>
 </html>
