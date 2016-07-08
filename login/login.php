@@ -10,7 +10,7 @@
     $username = mysql_real_escape_string($username);
     $password = mysql_real_escape_string($password);
 
-    $result = mysql_query("select * from usuarios where username = '$username' and password = '$password'")
+    $result = mysql_query("select * from tbl_usuarios where username = '$username' and password = '$password'")
               or die("Fallo ingreso ".mysql_error());
     $row = mysql_fetch_array($result);
     if ($row['username'] == $username && $row['password'] == $password ){
