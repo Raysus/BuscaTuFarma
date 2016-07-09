@@ -2,20 +2,31 @@
     session_start();
     include  '../include/connectToDB.php';
 
-    $usuario = $_POST['username'];
-    $password = $_POST['password'];
+  	$username = mysqli_real_escape_string($db, $_POST['username']);
+  	$password = mysqli_real_escape_string($db, $_POST['password']);
 
-    $username = stripcslashes($username);
-    $password = stripcslashes($password);
-    $username = mysql_real_escape_string($username);
-    $password = mysql_real_escape_string($password);
+  	$sql = "SELECT *
+  			FROM tbl_usuario
+  			WHERE username = '$username'
+  			AND password = '$password'";
 
-    $result = mysql_query("select * from tbl_usuarios where username = '$username' and password = '$password'")
-              or die("Fallo ingreso ".mysql_error());
-    $row = mysql_fetch_array($result);
-    if ($row['username'] == $username && $row['password'] == $password ){
-      echo "Acceso Exitoso, Bienvenido ".$row['username'];
-    } else {
-        echo "Login incorrecto";
-    }
-?>
+  	if (!$resultado = $db->query($sql)){
+  		echo "Error en la consulta.";
+  		exit;
+  	}
+
+  	$usuario = $resultado->fetch_assoc();
+
+  /*	if($resultado->num_rows > 0 ){
+  		$_SESSION['username'] = $usuario['username'];
+  		$_SESSION['privi'] = $usuario['cod_tipo'];
+  		if($usuario['cod_tipo']==1){
+  	        header('Location: ../buscador/buscador.php');
+  	    }else {
+  	    	header('Location: index.html');
+  	    }
+  	}
+*/
+
+
+  ?>
