@@ -66,6 +66,25 @@
               <button id="login_button" type="submit" class="btn btn-default">Ingresar</button>
             </form>
           </li>
+					<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Agregar Medicamento</a></span>
+				<form role="form" class="dropdown-menu" action="scripts/agregar.php" method="post" id="agregar">
+					<div class="form-group">
+						<label for="text">Nombre Generico:</label>
+						<input type="text" class="form-control" name="Nombre_activo">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Nombre Medicamento:</label>
+						<input type="text" class="form-control" name="password">
+					</div>
+					<div class="form-group">
+						<label for="pwd">Tipo de Medicamento:</label>
+						<input type="text" class="form-control" name="password">
+					</div>
+						<div id="estadoAgregar"></div>
+						<button id="agregar_button" type="submit" class="btn btn-default">Agregar Medicamento</button>
+					</form>
+				</li>
 					</ul>
 				</div>
 
@@ -112,7 +131,7 @@
 							<?php
 							$busca="";
 							$busca=$_POST['busca'];
-							m$db = new mysqli("localhost" ,"root", "","medicamentos");
+							$db = new mysqli("localhost" ,"root", "","medicamentos");
 							if($busca!=""){
 							  $busqueda=mysql_query("select * from medicamentos where Nombre_activo like '%".$busca."%'");
 							}
